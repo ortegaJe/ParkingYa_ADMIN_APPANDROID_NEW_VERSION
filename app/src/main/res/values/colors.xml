@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#066336</color>
+    <color name="colorPrimaryDark">#008F4C</color>
+    <color name="colorAccent">#3ab12c</color>
+
+    <color name="colorOrange">#D59900</color>
+
+    <color name="colorYellowForSnack">#FFEE00</color>
+    <color name="colorGreenForSnack">#066336</color>
+</resources>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#066336"
+    tools:context=".LoginMain">
+
+    <LinearLayout
+        android:id="@+id/mainlayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView_beta_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beta versión 2.0.0"
+            android:textColor="#ffff" />
+
+        <ImageView
+            android:id="@+id/logo_login_admin"
+            android:layout_width="@dimen/_115sdp"
+            android:layout_height="@dimen/_116sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_28sdp"
+            android:src="@drawable/administrator" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center"
+            android:id="@+id/txt_input_login_name"
+            android:layout_width="@dimen/_293sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:textColorHint="#fff"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_gravity="center"
+                android:id="@+id/editText_LoginName"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_emailreg"
+                android:drawablePadding="@dimen/_4sdp"
+                android:ems="10"
+                android:text="admin.pp@parkingya.com.co"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txt_input_login_pass"
+            android:layout_width="@dimen/_293sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColorHint="#fff"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_input_login_name"
+            app:passwordToggleEnabled="false"
+            >
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editText_LoginPass"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_action_passreg"
+                android:drawablePadding="@dimen/_4sdp"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:text="1143434718"
+                android:inputType="textPassword"
+                android:textColorHint="#fff"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_LoginName" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/idsede"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/spinner_border"
+            android:gravity="center"
+            android:popupBackground="#066336"
+            android:spinnerMode="dropdown"
+            tools:layout_editor_absoluteX="22dp"
+            tools:layout_editor_absoluteY="114dp" />
+
+
+        <Button
+            android:id="@+id/btn_enter"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="@dimen/_155sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@drawable/buttonstylegradient"
+            android:onClick="AccessLogin"
+            android:text="Ingresar"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#066336"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:visibility="invisible"
+        android:id="@+id/progress"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        style="@style/SpinKitView.Small.Circle"
+        app:SpinKit_Color="#FFEE00"/>
+
+</RelativeLayout>

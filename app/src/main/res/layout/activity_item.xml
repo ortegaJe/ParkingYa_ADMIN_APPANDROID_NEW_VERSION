@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:id="@+id/rll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/listIma"
+        android:background="@drawable/iconnew"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_width="48dp"
+        android:layout_height="60dp" />
+
+    <TextView
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_toRightOf="@+id/listIma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_placa"
+        android:drawableLeft="@drawable/ic_action_car_license"
+        android:text="PLACA #:"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="#066336" />
+
+    <TextView
+        android:id="@+id/tv_pos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_placa"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_marginLeft="119dp"
+        android:layout_toRightOf="@+id/listIma"
+        android:text="POSICION: "
+        android:textColor="#066336"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_toRightOf="@+id/listIma"
+        android:layout_marginStart="@dimen/_72sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_row"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="#066336"
+        android:text="A1"
+        android:textStyle="bold"
+        android:layout_below="@+id/tv_placa"
+         />
+
+
+
+</RelativeLayout>
+
+</android.support.v7.widget.CardView>
+

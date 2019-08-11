@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.johandds.checkpayment.Dashboard">
+
+
+    <item android:id="@+id/extensiones"
+        android:title="Ver Extensiones"
+        android:orderInCategory="1"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/create_extensiones"
+        android:title="Crear Extensiones"
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/reportecall"
+        android:title="Historial llamadas"
+        android:orderInCategory="3"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/reload"
+        android:title="Reload"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:orderInCategory="4"
+        app:showAsAction="always"/>
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Cerrar sesión"
+        app:showAsAction="never" />
+</menu>
