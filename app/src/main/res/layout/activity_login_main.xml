@@ -98,7 +98,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/spinner_border"
             android:gravity="center"
-            android:popupBackground="#066336"
+            android:popupBackground="#FFEE00"
             android:spinnerMode="dropdown"
             tools:layout_editor_absoluteX="22dp"
             tools:layout_editor_absoluteY="114dp" />
