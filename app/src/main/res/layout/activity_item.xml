@@ -55,8 +55,7 @@
         android:textColor="#066336"
         android:text="A1"
         android:textStyle="bold"
-        android:layout_below="@+id/tv_placa"
-         />
+        android:layout_below="@+id/tv_placa" />
 
 
 
