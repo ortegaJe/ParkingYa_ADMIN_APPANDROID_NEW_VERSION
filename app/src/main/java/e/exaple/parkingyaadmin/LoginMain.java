@@ -3,6 +3,7 @@ package e.exaple.parkingyaadmin;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,8 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
+
 public class LoginMain extends AppCompatActivity implements interfaceListener, AdapterView.OnItemSelectedListener {
 
     http http;
@@ -34,6 +37,8 @@ public class LoginMain extends AppCompatActivity implements interfaceListener, A
     ArrayList idsedes = new ArrayList();
     ArrayList sedesName = new ArrayList();
     String sedeid;
+
+    int timer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +75,7 @@ public class LoginMain extends AppCompatActivity implements interfaceListener, A
         if(!pass.isEmpty()){
             if(!email.isEmpty()){
                 mainL.setAlpha((float) 0.0);
-                progress.setVisibility(View.INVISIBLE);
+                progress.setVisibility(View.VISIBLE);
                 validateData(email,pass);
             }else{
                 Toast.makeText(this, "Este campo es requerido", Toast.LENGTH_SHORT).show();
@@ -147,5 +152,30 @@ public class LoginMain extends AppCompatActivity implements interfaceListener, A
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (timer==0){
+            //Toast.makeText(getApplicationContext(),"Presione nuevamente para salir de la aplicación", Toast.LENGTH_SHORT).show();
+            Toasty.warning(getApplicationContext(),"Presione nuevamente para salir de la aplicación", Toast.LENGTH_SHORT).show();
+            timer++;
+        }else{
+        super.onBackPressed();
+    }
+
+        new CountDownTimer(3000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+             timer=0;
+            }
+        }.start();
     }
 }

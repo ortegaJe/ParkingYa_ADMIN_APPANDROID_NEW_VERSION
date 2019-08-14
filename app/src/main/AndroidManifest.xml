@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
 
-        <activity android:name=".Dashboard" android:parentActivityName=".LoginMain" android:screenOrientation="portrait"
-            android:label="Lista de reservas"
-            android:theme="@style/AppTheme.parkingYa"></activity>
+        <activity android:name=".Dashboard" android:screenOrientation="portrait" android:launchMode="singleInstance"
+            android:theme="@style/AppThemeDashboard"
+            android:label="Lista de reservas"></activity>
 
         <activity android:name=".LoginMain" android:screenOrientation="portrait"
             android:theme="@style/AppTheme.parkingYaFullScreen">

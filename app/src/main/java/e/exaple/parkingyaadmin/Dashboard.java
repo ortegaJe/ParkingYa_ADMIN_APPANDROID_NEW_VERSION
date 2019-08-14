@@ -4,9 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,6 +27,10 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
+
+import static com.loopj.android.http.AsyncHttpClient.LOG_TAG;
+
 public class Dashboard extends AppCompatActivity implements interfaceListener {
 
     http http;
@@ -28,6 +38,7 @@ public class Dashboard extends AppCompatActivity implements interfaceListener {
     private ListView listView;
     SharedPreferences pref;
     public  final String MyPREFERENCES = "MyPrefs";
+    private CoordinatorLayout layout_dashboard;
     ArrayList<String> placa = new ArrayList<>();
     ArrayList<String> rowi = new ArrayList<>();
 
@@ -37,9 +48,13 @@ public class Dashboard extends AppCompatActivity implements interfaceListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         listView = findViewById(R.id.listview);
+        layout_dashboard =findViewById(R.id.layout_dashboard);
         registerForContextMenu(listView);
         pref = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         getReserv(pref.getString(Constants.SEDE,""));
@@ -48,9 +63,55 @@ public class Dashboard extends AppCompatActivity implements interfaceListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(Dashboard.this, "Reserva con numero de placa: " + placa.get(position) + " en la posición " + rowi.get(position), Toast.LENGTH_SHORT).show();
+                Toasty.success(getApplicationContext(), "Reserva con numero de placa: " + placa.get(position) + " en la posición " + rowi.get(position), Toasty.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(LOG_TAG, "onDestroy()");
+        super.onDestroy();
+
+        Dashboard.this.finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.logout_admin) {
+            Snackbar snackbar;
+            snackbar= Snackbar.make(layout_dashboard,"Desea cerrar sesión?",Snackbar.LENGTH_LONG);
+            View snackBarView = snackbar.getView();
+            snackbar.setAction("SI", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intentExit = new Intent(Dashboard.this, LoginMain.class);
+                    startActivity(intentExit);
+                    finish();
+                }
+            });
+
+            snackBarView.setBackgroundColor(getResources().getColor(R.color.colorYellowForSnack));
+            TextView textView = snackBarView.findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(getResources().getColor(R.color.colorGreenForSnack));
+            snackbar.show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void getReserv(String idsede) {
